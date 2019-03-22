@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>设备概览</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../style/font.css">
+    <link rel="stylesheet" href="../style/main.css">
+
+    <script src="../lib/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../style/first.css">
+    <script src="../lib/echarts.min.js"></script>
+    <link rel="stylesheet" href="../style/overview.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="../lib/laydate/laydate.js"></script>
+
+</head>
+<body bgcolor="#6495ed">
+<div class="user-text">
+    <p class=""><a href="#" style="color: orangered">修改密码</a></p>
+    <p class=""><a href="#">退出登录</a></p>
+</div><!--皮肤切换模块-->
+<div class="container-fluid" style="height: 100%;padding: 0; overflow-y: hidden; ">
+    <nav class="navbar navbar-default navbar-inverse nav-bg1 " style="margin-bottom: 0; border: none; border-radius: 0 " >
+        <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-text nav-logo navbar-left" style="color: white">设备概览</p>
+        </div>
+
+            <p class="navbar-text pull-right  user" style="color: white;font-size: 0.15rem;cursor: pointer" >
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>欢迎您:某某</p>
+            <form class="navbar-form navbar-right">
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" style="font-size: 0.15rem">
+                    故障信息&nbsp0
+                </button>
+            </form>
+        </div>
+    </nav>
+
+    <div id="wrapper" >
+        <div id="sidebar-nav" class="sidebar bg-color1">
+            <div class="sidebar-scroll" style="padding-top: 20px">
+                <nav>
+                    <ul class="nav">
+                        <li>
+                            <a href="first.html" >
+                                <i class="glyphicon glyphicon-home"></i><span>首页</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="overview.html" >
+                                <i class="glyphicon glyphicon-blackboard link"></i><span>实时监控</span>
+                            </a>
+
+                        </li>
+                        <!-- <li>
+                            <a  class="link" id="fault" >
+                                <i class="glyphicon glyphicon-tasks link" ></i><span>故障记录</span>
+                            </a>
+
+                        </li>-->
+                        <li>
+                            <a href="#subPages5" data-toggle="collapse" class="collapsed">
+                                <i class="glyphicon glyphicon-tasks "></i><span>故障记录</span>
+                                <i class="glyphicon glyphicon-chevron-left pull-right" ></i>
+                            </a>
+                            <div id="subPages5" class="collapse ">
+                                <ul class="nav">
+                                    <li ><a  class="link" id="fault"><i class="glyphicon glyphicon-triangle-right"></i>历史故障</a></li>
+                                    <li ><a class="link" id="Abnormal history"> <i class="glyphicon glyphicon-triangle-right"></i>异常点记录</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="#subPages4" data-toggle="collapse" class="collapsed">
+                                <i class="glyphicon glyphicon-blackboard"></i><span>系统报表</span>
+                                <i class="glyphicon glyphicon-chevron-left pull-right" ></i>
+                            </a>
+                            <div id="subPages4" class="collapse ">
+                                <ul class="nav">
+                                    <li ><a  class="link" id="Report"><i class="glyphicon glyphicon-triangle-right"></i>功率曲线</a></li>
+                                    <li ><a class="link" id="zidingyi"> <i class="glyphicon glyphicon-triangle-right"></i>自定义报表</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="#subPages3" data-toggle="collapse" class="collapsed">
+                                <i class="glyphicon glyphicon-search"></i><span>历史查询</span>
+                                <i class="glyphicon glyphicon-chevron-left pull-right" ></i>
+                            </a>
+                            <div id="subPages3" class="collapse ">
+                                <ul class="nav">
+                                    <li ><a class="link" id="record"> <i class="glyphicon glyphicon-triangle-right"></i>记录查询</a></li>
+                                    <li ><a  class="link" id="contrast"><i class="glyphicon glyphicon-triangle-right"></i>数据对比</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#subPages2" data-toggle="collapse" class="collapsed">
+                                <i class="glyphicon glyphicon-cog"></i><span>系统管理</span>
+                                <i class="glyphicon glyphicon-chevron-left pull-right" ></i>
+                            </a>
+                            <div id="subPages2" class="collapse ">
+                                <ul class="nav">
+                                    <li ><a class="link" id="user"> <i class="glyphicon glyphicon-triangle-right"></i>人员管理</a></li>
+                                    <li ><a  class="link" id="rizhi"><i class="glyphicon glyphicon-triangle-right"></i>日志管理</a></li>
+                                    <li ><a  class="link" id="feng"><i class="glyphicon glyphicon-triangle-right"></i>风机管理</a></li>
+                                    <li ><a  class="link" id="Monitor"><i class="glyphicon glyphicon-triangle-right"></i>监控量控制</a></li>
+                                    <li ><a  class="link" id="control menu"><i class="glyphicon glyphicon-triangle-right"></i>控制菜单</a></li>
+                                    <li ><a  class="link" id="language"><i class="glyphicon glyphicon-triangle-right"></i>语言设置</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!--侧导航-->
+        <div class="main col-md-12" id="main" style=" height: 100%; padding: 0;">
+            <div id="main-top" style=" background-color: rgba(80,104,164,0.78);padding: 0.05rem;">
+                <span class="glyphicon glyphicon-print span list1" id="list1"></span>
+                <span class="glyphicon glyphicon-list span list" id="list"></span>
+            </div>
+            <div id="show-text" style="width: 100%; height: 100%;overflow: auto;">
+                <ul class="MainBox" style="background-color: #0B66B9;height:100%; margin-bottom: 0;">
+                    <li>
+                        <div class="row " style="padding-top:0.22rem;">
+                            <div class="col-md-7" >
+                                <p style="font-size: 0.22rem; text-align: center; color:white;padding: 2%;">长沙厂区</p>
+                            </div>
+                            <div class="col-md-5 LeftTop" style="padding: 0">
+                                <p>正常:200台</p>
+                                <p>故障:1台</p>
+                                <p>故障率:0.1%</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li><div class="row  FengJiState" style="padding: 10px">
+                        <div class="col-md-4 TuBiaoRight" >
+                            <i class=" fa fa-cog fa-spin" ></i>
+                            <p class="BHStyle" >G016</p>
+                        </div>
+                        <div class="col-md-8 ZhuangTai" >
+                            <ul>
+                                <li>状态:正常</li>
+                                <li>故障次数:2</li>
+                                <li>运行时长：300h</li>
+                            </ul>
+                        </div>
+                    </div>
+                    </li>
+
+                    <li><div class="row  FengJiState" style="padding: 10px">
+                        <div class="col-md-4 TuBiaoRight" >
+                            <i class="fa fa-cog fa-spin" ></i>
+                            <p class="BHStyle" >G017</p>
+                        </div>
+                        <div class="col-md-8 ZhuangTai" >
+                            <ul>
+                                <li>状态:正常</li>
+                                <li>故障次数:2</li>
+                                <li>运行时长：300h</li>
+                            </ul>
+                        </div>
+                    </div>
+                    </li>
+                    <li><div class="row  FengJiState" style="padding: 10px">
+                        <div class="col-md-4 TuBiaoRight" >
+                            <i class="fa fa-cog fa-spin" ></i>
+                            <p class="BHStyle" >G018</p>
+                        </div>
+                        <div class="col-md-8 ZhuangTai" >
+                            <ul>
+                                <li>状态:正常</li>
+                                <li>故障次数:2</li>
+                                <li>运行时长：300h</li>
+                            </ul>
+                        </div>
+                    </div>
+                    </li>
+                    <li><div class="row  FengJiState" style="padding: 10px">
+                        <div class="col-md-4 TuBiaoRight" >
+                            <i class="fa fa-cog fa-spin" ></i>
+                            <p class="BHStyle" >G019</p>
+                        </div>
+                        <div class="col-md-8 ZhuangTai" >
+                            <ul>
+                                <li>状态:正常</li>
+                                <li>故障次数:2</li>
+                                <li>运行时长：300h</li>
+                            </ul>
+                        </div>
+                    </div>
+                    </li>
+                    <li><div class="row  FengJiState" style="padding: 10px">
+                        <div class="col-md-4 TuBiaoRight" >
+                            <i class="fa fa-cog fa-spin" ></i>
+                            <p class="BHStyle" >G020</p>
+                        </div>
+                        <div class="col-md-8 ZhuangTai" >
+                            <ul>
+                                <li>状态:正常</li>
+                                <li>故障次数:2</li>
+                                <li>运行时长：300h</li>
+                            </ul>
+                        </div>
+                    </div>
+                    </li>
+                    <li><div class="row  FengJiState" style="padding: 10px">
+                        <div class="col-md-4 TuBiaoRight" >
+                            <i class="fa fa-cog"style="color: red" ></i>
+                            <p class="BHStyle" >G021</p>
+                        </div>
+                        <div class="col-md-8 ZhuangTai" >
+                            <ul>
+                                <li>状态:故障</li>
+                                <li>故障次数:2</li>
+                                <li>运行时长：300h</li>
+                            </ul>
+                        </div>
+                    </div>
+                    </li>
+                    <li><div class="row  FengJiState" style="padding: 10px;">
+                        <div class="col-md-4 TuBiaoRight" >
+                            <i class="fa fa-cog " style="color: grey" ></i>
+                            <p class="BHStyle" >G022</p>
+                        </div>
+                        <div class="col-md-8 ZhuangTai" >
+                            <ul>
+                                <li>状态:未开机</li>
+                                <li>故障次数:2</li>
+                                <li>运行时长：300h</li>
+                            </ul>
+                        </div>
+                    </div>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div><!--侧边div内容-->
+    </div><!--主体部分结束-->
+</div>
+<!--整个布局-->
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="overflow: auto;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">故障信息</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover" style="text-align: center; ">
+                    <tr>
+                        <th> 故障编号</th>
+                        <th> 主机编号</th>
+                        <th>故障描述</th>
+                        <th>故障时间</th>
+                    </tr>
+                    <tr class="fault">
+                        <th class="fault-nu">1</th>
+                        <th>hgh6666</th>
+                        <th>主轴前轴承温度超标</th>
+                        <th>2018/6/27/9:00</th>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+</div><!--报警模态框-->
+
+<script src="../js/main.js"></script>
+<script src="../js/overview.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+
+
+</script>
+</body>
+</html>

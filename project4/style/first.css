@@ -1,0 +1,13 @@
+.main{ height:100%}
+.main-content{height: 100%}
+.p{ height: 24%;}
+.p div{ text-align: center}
+.block{ text-align: center; padding-top: 1%; font-weight: 900;  border: 5px groove #0080FF;}
+.block h4{ font-size: 26px; }
+.p div p{ font-size: 28px; margin-top: 8%; color: navy;}
+#tt{ text-align: center}
+#tt p{font-size: 28px; margin-top: 8%; }
+.link{cursor: pointer;}
+.fault{ cursor: pointer}
+.i label{ font-size: 13px}
+.i button{font-size: 14px}

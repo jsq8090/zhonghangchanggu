@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script src="../../lib/jquery-3.3.1.min.js"></script>
+    <script src="../../lib/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/build/layui.css" media="all">
+    <script src="../../lib/laydate/laydate.js"></script>
+
+    
+    <style type="text/css">
+
+        .RecordTable table{
+            text-align: center;
+        }
+        .RecordTable table thead tr th{
+            text-align: center;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="container-fluid" style="padding-top: 10px; overflow: auto; " >
+        <form class="form-inline" style="margin: 5px;">
+            <label >选择用户：</label>
+            <select class="form-control">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="opel">Opel</option>
+                <option value="audi">Audi</option>
+            </select>
+
+            <input class="form-control" type="text" id="RecordTime">
+            <input class="form-control" type="text" id="RecordTime2">
+            <div class="btn-group btn-group-xs" role="group">
+                <button type="button" class="btn  btn-info">
+                    <label >查询</label>
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="btn-group btn-group-xs" role="group">
+                <button type="button" class="btn  btn-info" >
+                    导出 <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+                </button>
+            </div>
+        </form>
+        <div class="RecordTable">
+            <table class="table table-striped table-bordered ">
+                <thead>
+                <tr>
+                    <th>时间</th>
+                    <th>用户</th>
+                    <th>日志内容</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>2018-07-17 20:47:39</td>
+                    <td>1号管理员</td>
+                    <td>G03号鼓风机量程修改</td>
+                </tr>
+                <tr>
+                    <td>2018-07-17 20:47:39</td>
+                    <td>某某职工</td>
+                    <td>G03号鼓风机启动</td>
+                </tr>
+                <tr>
+                    <td>2018-07-17 20:47:39</td>
+                    <td>2号管理员</td>
+                    <td>G03号鼓风机预警值修改</td>
+                </tr>
+                <tr>
+                    <td>2018-07-17 20:47:39</td>
+                    <td>管理</td>
+                    <td>G03号鼓风机启动</td>
+                </tr>
+                <tr>
+                    <td>2018-07-17 20:47:39</td>
+                    <td>管理</td>
+                    <td>G03号鼓风机维修</td>
+                </tr>
+                <tr>
+                    <td>2018-07-17 20:47:39</td>
+                    <td>管理</td>
+                    <td>G03号鼓风机启动</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    <span class="">当前页&nbsp1/8</span>
+    <br>
+    <nav aria-label="Page navigation" style="padding-left: 50%" >
+        <ul class="pagination">
+            <li><a href="">首页</a></li>
+            <li><a href="">上一页</a></li>
+            <li><a href="">下一页</a></li>
+            <li><a href="">尾页</a></li>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <input type="text" class="form-control value" placeholder="页数">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default tiao" type="button">跳转</button>
+                    </span>
+                </div>
+            </div>
+        </ul>
+    </nav>
+    </div>
+    <script>
+        $(function () {
+            laydate.render({
+                elem: '#RecordTime' //指定元素
+                ,value: '2018-08-18'
+            });
+
+            laydate.render({
+                elem: '#RecordTime2' //指定元素
+                ,value: '2018-12-27'
+            });
+            $('.tiao').click(function () {
+                var val=$('.value').val()
+
+            })
+        })
+
+
+    </script>
+
+</body>
+</html>

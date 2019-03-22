@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+var data = [ [13.472, 18796],
+    [13.447, 18789],
+    [13.432, 18789],
+    [14.422, 18785],
+    [13.413, 18785],
+    [13.397, 18783],
+    [13.383, 18779],
+    [13.372, 18778],
+    [13.332, 18769],
+    [13.321, 18765],
+    [13.316, 18764]
+
+
+                ];/*数据写入*/
+
+// See https://github.com/ecomfe/echarts-stat
+var myRegression = ecStat.regression('linear', data);
+
+myRegression.points.sort(function(a, b) {
+    return a[0] - b[0];
+});
+
+option = {
+    title: {
+        text: '拟合直线',
+        subtext: 'By ecStat.regression',
+        sublink: 'https://github.com/ecomfe/echarts-stat',
+        left: 'center'
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross'
+        }
+    },
+    xAxis: {
+        type: 'value',
+
+        splitLine: {
+            lineStyle: {
+                type: 'dashed'
+            }
+        },
+    },
+    yAxis: {
+        type: 'value',
+
+        splitLine: {
+            lineStyle: {
+                type: 'dashed'
+            }
+        }
+    },
+    dataZoom: [
+        {
+            type: 'slider',    //支持鼠标滚轮缩放
+            start: 0,            //默认数据初始缩放范围为10%到90%
+            end: 100
+        },
+        {
+            type: 'inside',    //支持单独的滑动条缩放
+            start: 0,            //默认数据初始缩放范围为10%到90%
+            end: 100
+        }
+    ],
+    series: [{
+        name: 'scatter',
+        type: 'scatter',
+        label: {
+            emphasis: {
+                show: true,
+                position: 'left',
+                textStyle: {
+                    color: 'blue',
+                    fontSize: 16
+                }
+            }
+        },
+        data: data
+    }, {
+        name: 'line',
+        type: 'line',
+        showSymbol: false,
+        data: myRegression.points,
+        markPoint: {
+            itemStyle: {
+                normal: {
+                    color: 'transparent'
+                }
+            },
+            label: {
+                normal: {
+                    show: true,
+                    position: 'left',
+                    formatter: myRegression.expression,
+                    textStyle: {
+                        color: '#333',
+                        fontSize: 14
+                    }
+                }
+            },
+            data: [{
+                coord: myRegression.points[myRegression.points.length - 1]
+            }]
+        }
+    }]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

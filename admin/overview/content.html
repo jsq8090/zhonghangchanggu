@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>风机内容</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--<script src="../../lib/jquery-3.3.1.min.js"></script>-->
+	<script src="../../lib/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../../style/font.css">
+
+<style>
+ html,body{ height: 100%}
+
+.table-1 th:hover{
+	background-color: blue;
+}
+#table-2 th,td:hover{
+	background-color: #4169E1;
+	opacity: 0.7;
+}
+</style>
+
+
+
+</head>
+<body>
+<div  class="container-fluid" style="padding: 0; height: 100%;background: #1284BA;color: white; overflow: auto">
+    <header style="background-color: #0B66B9; color: white">
+        <div class="row" style="margin:0;padding: 5px">
+        <div class="col-md-2"><i class="glyphicon glyphicon-arrow-left return" style="font-size: 0.2rem"></i></div>
+        <div class="col-md-8" style="text-align: center">
+            <span style="font-size: 0.2rem" class="macid" >G012</span>
+        </div>
+            <div class="col-md-2" style="text-align: right"><button class="btn btn-info go">数据可视化页面</button></div>
+        </div>
+    </header><!--页头部分-->
+
+    <div class="main" style="margin-top: 20px">
+        <div class="row" style="width: 98%; margin: 10px auto"><!--1-->
+
+            <div class="col-md-6" style=""> <!--左边部分-->
+                <div class="text" style="width: 98%;border: 3px groove white">
+                <h3 class="text-center">全览</h3>
+                <hr>
+
+    		<!--</div>-->
+    		<div class="row">
+    					<div class="col-md-6">
+    			<table class="table" style="border: 2px solid white;">
+    					<thead>
+						<tr>
+							<th>
+							<div style="display: flex;justify-content: space-around;">
+						   <span class="glyphicon glyphicon-globe" style="font-size: 2em"></span>
+							<span style=" color: white;font-size:24px;">温度</span>
+							</div>
+							</th>
+							<th></th>
+						</tr>
+						</thead>
+    					<tbody class="wendu all">
+    						<tr>
+    							<td>主轴后轴承温度</td>
+    							<td class="l">50℃ </td>
+    						</tr>
+    						<tr>
+    							<td>从轴前轴承温度</td>
+    							<td>50℃</td>
+    						</tr>
+    						<tr>
+    							<td>从轴后轴承温度</td>
+    							<td>50℃</td>
+    						</tr>
+    						<tr>
+    							<td>主油箱温度</td>
+    							<td>50℃</td>
+    						</tr>
+							<tr>
+								<td>副油箱温度</td>
+								<td>50℃ </td>
+							</tr>
+							<tr>
+								<td>风机进口温度</td>
+								<td>50℃</td>
+							</tr>
+							<tr>
+								<td>风机出口温度</td>
+								<td>50℃</td>
+							</tr>
+							<tr>
+								<td>油站油箱温度</td>
+								<td>50℃</td>
+							</tr>
+    					</tbody>
+    					
+    				</table>
+    						
+    					</div>
+    					<div class="col-md-6">
+							<table class="table" style="border: 2px solid white;">
+								<thead><tr><th><div style="display: flex;justify-content: space-around;">
+									<span class="glyphicon glyphicon-globe" style="font-size: 2em"></span>
+									<span style=" color: white;font-size:24px;">振动</span>
+								</div></th><th></th></tr></thead>
+								<tbody class="zhengdong all">
+								<tr>
+									<td>X向振动</td>
+									<td><span>112MHZ</span></td>
+								</tr>
+								<tr>
+									<td>Y向振动</td>
+									<td><span>221MHZ</span></td>
+								</tr>
+								<tr>
+									<td>Z向振动</td>
+									<td><span>325MHZ</span></td>
+								</tr>
+								</tbody>
+							</table>
+							<table class="table" style="border: 2px white solid ">
+								<thead><tr><th><div style="display: flex;justify-content: space-around;">
+									<span class="glyphicon glyphicon-globe" style="font-size: 2em"></span>
+									<span style=" color: white;font-size:24px;">压力</span>
+
+								</div></th><th></th></tr></thead>
+								<tbody class="yali all">
+								<tr>
+									<td>风机进口压力</td>
+									<td><span>563</span></td>
+								</tr>
+								<tr>
+									<td>风机出口压力</td>
+									<td><span>552</span></td>
+								</tr>
+								<tr>
+									<td>油站油压</td>
+									<td><span>582</span></td>
+								</tr>
+								</tbody>
+							</table>
+
+						</div>
+    					</div>
+               
+
+    						<div class="row">
+    					<div class="col-md-6">
+							<form class="table-3" style="width: 300px;height:160px;position: absolute; z-index: 9999; display: none;border-radius:10px;background-color:#0B66B9;">
+								<table class="table-condensed  " style="color:black; width: 80%;height: 10px; margin: 10px auto;">
+									<tbody>
+									<tr>
+										<td><label  style=" width: 60px;">初始值：</label></td>
+										<td>
+											<input type="number" class="form-control csvalue" value="1">
+										</td>
+									</tr>
+									<tr>
+										<td><label style=" width: 60px;">结束值：</label></td>
+										<td>
+											<input type="number" class="form-control jsvalue" value="2">
+										</td>
+									</tr>
+
+									</tbody>
+								</table>
+								<form class="form-inline">
+									<input type="button" value="提交" class="btn btn-info submit4" style="margin:0 35px">
+									<input type="button" value="清空" class="btn btn-info empty4" style="float: right;margin:0 35px">
+								</form>
+							</form>
+    						<table class="table" style="border: 2px solid white;">
+    					<thead><tr><th><div style="display: flex;justify-content: space-around;">
+					   <span class="glyphicon glyphicon-globe" style="font-size: 2em"></span>
+							<span style=" color: white;font-size:24px;">阻力</span>
+						</div></th><th></th></tr></thead>
+    					<tbody class="zuli all" >
+    						<tr>
+    							<td>进气过滤器阻力</td>
+    							<td ><span>1</span></td>
+    						</tr>
+
+    					</tbody>
+    					
+    				</table>
+							<table class="table" style="border: 2px solid white;">
+								<thead><tr><th><div style="display: flex;justify-content: space-around;">
+									<span class="glyphicon glyphicon-globe" style="font-size: 2em"></span>
+									<span style=" color: white;font-size:24px;">量程</span>
+									<input class="btn btn-info revamp2" type="button" value="修改"></div></th><th></th></tr></thead>
+								<tbody>
+								<tr class="liangcheng"><!--量程值值显示-->
+									<td style="font-size: 20px; text-align: center"><span>15</span>&nbsp&nbsp~&nbsp<span>25</span> </td>
+									<td></td>
+								</tr>
+								</tbody>
+							</table>
+    					</div>
+    					<div class="col-md-6 tabel-2" style="height: 200px;">
+							<form class="revamp" style="width: 300px;height:240px;position: absolute; z-index: 9999; display: none;border-radius:10px;background-color:#0B66B9; bottom: 100px; left: 50px">
+								<table class="table-condensed  " style=" color:black; width: 80%;height: 10px; margin: 10px auto;">
+									<tbody class="warningValue">
+									<tr>
+										<td><label style="width: 60px;">低报:</label></td>
+										<td>
+											<input type="number" class="form-control db" value="0">
+										</td>
+									</tr>
+									<tr>
+										<td><label  style=" width: 60px;">低低报:</label></td>
+										<td>
+											<input type="number" class="form-control ddb" value="0">
+										</td>
+									</tr>
+									<tr>
+										<td><label  style=" width:60px;">高报:</label></td>
+										<td>
+											<input type="number" class="form-control gb" value="0">
+										</td>
+									</tr>
+									<tr>
+										<td><label  style="width: 60px;">高高报:</label></td>
+										<td>
+											<input type="number" class="form-control ggb" value="0">
+										</td>
+									</tr>
+									</tbody>
+								</table>
+								<form class="form-inline">
+									<input type="button" value="提交" class="btn btn-info submit1" style="margin:0 35px">
+									<input type="button" value="清空" class="btn btn-info empty2" style="float: right;margin:0 35px">
+								</form>
+							</form>
+							<script>
+                                $(document).ready(function () {
+                                    var warning=[];
+                                    var i;
+									$.ajax({
+										url:"",
+										data:"",
+										type:"post",
+										dataType:"json",
+										async:true,
+										success:function (data) {
+											$('.all tr span').each(function () {
+												$(this).text(warning[i])
+                                            });
+                                        }
+									});
+                                    $('.empty4').click(function () {
+
+
+                                    });
+									$('.submit1').click(function () {
+                                        temp();
+                                        /*	fpressure()*/
+                                    });
+
+                                    function temp(){
+                                        $('input[type=number]').each(function () {
+                                            warning.push($(this).val());
+
+                                        });
+                                        console.log(warning);
+										$.ajax({
+											url:"content.html",
+											data:{
+                                            val:warning+""
+											},
+											type:"post",
+											dataType:"json",
+											async:true,
+											success:function (data) {
+                                       			  $('.warningValue tr span').each(function () {
+                                                    console.log("gfdgfdf"+data);
+													$(this).text(warning[i])
+                                                });
+                                            }
+										});
+										warning=[];
+                                    }/*收集表单值*/
+
+
+                                    var tab=$('.tabel-2').width();
+                                    $('.revamp1').click(function () {
+                                        $('.revamp').fadeToggle();
+                                        $('.revamp').css(
+                                            'left',tab
+                                        );
+                                    });
+                                    $('.empty2').click(function () {
+                                        $('.db').attr('value','');
+                                        $('.ddb').attr('value','');
+                                        $('.gb').attr('value','');
+                                        $('.ggb').attr('value','');
+                                    });
+                                    var tab=$('.tabel-2').width();
+                                    $('.revamp2').click(function () {
+                                        $('.table-3').fadeToggle();
+                                        $('.table-3').css('left',tab);
+                                    });
+
+                                });
+							</script>
+							<table class="table " style="border: 2px white solid ">
+								<thead><tr><th><div style="display: flex;justify-content: space-around;">
+									<span class="glyphicon glyphicon-globe" style="font-size: 2em"></span>
+									<span style=" color: white;font-size:24px;">预警值</span>
+									<input class="btn btn-info revamp1" type="button" value="修改">
+								</div></th><th></th></tr></thead>
+								<tbody class="yujing">
+								<tr>
+									<td>低低报</td>
+									<td><span>563</span></td>
+								</tr>
+								<tr>
+									<td>低报</td>
+									<td><span>552</span></td>
+								</tr>
+								<tr>
+									<td>高报</td>
+									<td><span>582</span></td>
+								</tr>
+								<tr>
+									<td>高高报</td>
+									<td><span>582</span></td>
+								</tr>
+								</tbody>
+							</table>
+
+    			  </div>
+    					</div>
+                </div>
+
+                
+            </div>  <!--左边部分-->
+
+
+            <div class="col-md-6"  > <!--右边部分-->
+
+                <div class="text" style="width: 98%;height: 695px;border: 3px groove white">
+                <!--右边部分内容-->
+                <div class="row" style="margin-top: 3em;">
+                	<div class="col-md-4">
+                		<div class="text-center">
+                		   	<span class="glyphicon glyphicon-hd-video" style="font-size: 5em;color: coral;" ></span>
+                		</div>
+                		<div class="text-center">
+                			风机型号:某某风机
+                		</div>
+                	</div>
+                	<div class="col-md-4">
+                		<div class="text-center">
+                		   	<span class="glyphicon glyphicon-record" style="font-size: 5em;color: coral;" ></span>
+                		</div>
+                		<div class="text-center">
+                			风机状态:开机
+                		</div>
+                	</div>
+                	<div class="col-md-4">
+                		<div class="text-center">
+                		   	<span class="glyphicon glyphicon-print" style="font-size: 5em;color: coral;" ></span>
+                		</div>
+                		<div class="text-center">
+                			有功功率:200.22kw
+                		</div>
+                	</div>
+                	
+                </div>
+                 
+                
+                
+                 <div class="row" style="margin-top: 3em;">
+                	<div class="col-md-4">
+                		<div class="text-center">
+                		   	<span class="glyphicon glyphicon-bookmark" style="font-size: 5em;color: coral;" ></span>
+                		</div>
+                		<div class="text-center">
+                			产风速:1.79m/s
+                		</div>
+                	</div>
+                	<div class="col-md-4">
+                		<div class="text-center">
+                		   	<span class="glyphicon glyphicon-modal-window" style="font-size: 5em;color: coral;" ></span>
+                		</div>
+                		<div class="text-center">
+                			工作时长:43h
+                		</div>
+                	</div>
+                	<div class="col-md-4">
+                		<div class="text-center">
+                		   	<span class="glyphicon glyphicon-scale" style="font-size: 5em;color: coral;" ></span>
+                		</div>
+                		<div class="text-center">
+                			总产风量:10000
+                		</div>
+                	</div>
+                	
+                </div>
+                <!--</hr>-->
+                <hr />
+                
+               <div class="text-center" style="background-color: blue; border-radius: 1em; " >
+               	<h3>警告</h3>
+               	
+               </div>
+               
+              
+               	<div id="">
+               		
+               	
+               	<table class="table table-bordered"  style="background-color: darkblue;" id="table-1">
+    				<tr><th class="text-center">数据</th>
+    					<th class="text-center">图形</th>
+    					
+    				</tr>
+    				
+    			</table>
+    		
+    				<table class="table table-bordered">
+    					<thead>
+    						<tr><td class="">序号</td>
+    							<td class="">触发时间</td>
+    							<td class="">历史警告</td>
+    						</tr>
+    					</thead>
+    					<tbody>
+    						<tr>
+    							<td>111</td>
+    							<td>222</td>
+    							<td>
+    								55555555
+    							</td>
+    						</tr>
+    					</tbody>
+    				</table>
+               </div>
+                
+                
+                </div>
+
+            </div>  <!--右边部分-->
+
+         </div><!--1-->
+
+    </div><!--整体部分结束-->
+
+
+</div>
+<script>
+    $(function () {
+
+        $('.return').on('click',function () {
+           window.open('../../admin/overview.html','_parent')
+        })
+    });
+        $('.go').on('click',function () {
+            window.open('../../project4/admin/first.html','_blank')
+        })
+
+
+</script>
+
+</body>
+
+</html>

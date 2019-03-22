@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>数据总屏</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../style/main.css">
+    <script src="../lib/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../style/first.css">
+    <script src="../lib/echarts.min.js"></script>
+    <link rel="stylesheet" href="../style/font.css">
+
+</head>
+<body bgcolor="#6495ed">
+<div class="skin-text">
+    <p class="blue">科技蓝 </p>
+    <p class="black">商务黑</p>
+</div><!--皮肤切换模块-->
+<div class="user-text">
+    <p class=""><a href="#" style="color: orangered">修改密码</a></p>
+    <p class=""><a href="../admin/index/index.html">退出登录</a></p>
+</div><!--皮肤切换模块-->
+
+<div class="container-fluid" style="height: 100%;padding: 0; overflow-y: hidden">
+    <nav class="navbar navbar-default navbar-inverse nav-bg1" style=" margin-bottom: 0; border: none; border-radius: 0 " >
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <p class="navbar-text nav-logo navbar-left" style="color: white">中航长鼓智能大数据系统</p>
+            </div>
+            <p class="navbar-text pull-right user" style="color: white;font-size:0.15rem;cursor: pointer" >
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp欢迎您:某某</p>
+            <p class="navbar-text pull-right skin" style="color: white;font-size: 0.15rem;cursor: pointer" title="设定皮肤">
+                <span class="glyphicon glyphicon-tags" aria-hidden="true"></span></p>
+        </div>
+    </nav>
+
+<div id="wrapper">
+    <div id="sidebar-nav" class="sidebar bg-color1">
+        <div class="sidebar-scroll" style="padding-top: 20px">
+            <nav>
+                <ul class="nav">
+                    <li>
+                        <a href="#"  data-toggle="collapse" class="collapsed link">
+                            <i class="glyphicon glyphicon-home"></i><span>首页</span>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#subPages2" data-toggle="collapse" class="collapsed">
+                        <i class="glyphicon glyphicon-blackboard"></i><span>设备概览</span>
+                        <i class="iconfont icon-zuojiantou pull-right" ></i>
+                    </a>
+                        <div id="subPages2" class="collapse">
+                            <ol class="nav" type="1">
+                                <li ><a href="overview.html"><i class="glyphicon glyphicon-triangle-right"></i>长沙分厂</a></li>
+                            </ol>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#"  target="_blank">
+                            <i class="glyphicon glyphicon-tasks"></i><span>报表系统</span>
+
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#"  target="_blank">
+                            <i class="glyphicon glyphicon-inbox"></i><span>运维系统</span>
+
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#"  >
+                            <i class="iconfont icon-peizhi"></i><span>控制协调系统</span>
+
+                        </a>
+
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="Time">
+            <p class="time"></p>
+            <p class="time-hours"></p>
+        </div>
+    </div>
+    <!--侧导航-->
+    <div class="main col-md-12" id="main" style="overflow: auto; height: 100%; padding: 0;">
+        <div id="map" style="height: 100%;"></div>
+        <!--地图-->
+    </div>
+
+    </div>
+</div>
+
+<script src="../js/main.js"></script>
+
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+<script type="text/javascript">
+    $(function () {
+    var dom = document.getElementById("map");
+    var myChartMap = echarts.init(dom);
+    var app = {};
+    option = null;
+    app.title = '杭州热门步行路线 - 百度地图';
+    var zuoBiao=[
+        { name: "北京",value:[116.46, 39.92] },
+        { name: "上海", value: [121.48, 31.22] },
+        { name: "天津", value: [117.2,39.13] },
+        {name: "重庆", value: [106.54,  29.59] },
+        {name: "长沙", value: [112.59,  28.12] }
+    ];
+
+    myChartMap.setOption(option = {
+        bmap: {
+            center: [105.46, 36.92],
+            zoom: 5,
+            roam: true,
+            scaleLimit:{
+                min:1,
+                max:4
+            }
+        },
+        tooltip: {
+            trigger:'item',
+            label:{
+                emphasis:{
+                    show:false
+                }
+            },
+            formatter:"工厂地址"+":"+'{b0}'+"</br>"+'{a0}:{c0}'+"</br>"+'鼓风机数:'+'8'
+        },
+        series: [{
+            name: '坐标',
+            coordinateSystem: 'bmap',
+
+            polyline: true,
+            data:zuoBiao,
+            type: 'scatter',
+
+            color:'blue',
+            symbolSize:10,
+            symbol:'circle',
+            lineStyle: {
+                normal: {
+                    color: 'purple',
+                    opacity: 0.6,
+                    width: 1
+                }
+            }
+        }]
+    });
+        myChartMap.on('click',function(params){
+           window.open('overview.html','_self')
+        });/*图表点击事件*/
+
+
+        if (option && typeof option === "object") {
+        myChartMap.setOption(option, true);
+    }
+    window.onresize = function(){
+        myChartMap.resize();
+    };
+    })
+</script>
+
+
+
+</body>
+</html>

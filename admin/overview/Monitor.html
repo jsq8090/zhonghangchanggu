@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>监控量配置</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../../style/main.css">
+    <script src="../../lib/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../../font/iconfont.css">
+    <link rel="stylesheet" href="../../style/first.css">
+    <script src="../../lib/laydate/laydate.js"></script>
+    <link rel="stylesheet" href="../../style/font.css">
+    <script src="../../lib/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../lib/laydate/laydate.js"></script>
+        <style>
+        html,body{ height: 100%;}
+        table tr th{
+            text-align: center;
+            height: 40px;
+        }
+        .MonitorTd{
+            width: 250px;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            $('input:checkbox').click(function () {
+                i=$("input[name='checkbox']:checked").length;
+                $('.btnself').val('已选择'+i+'台');
+
+            });/*监听选中复选框个数*/
+            var selfwidth=0;
+            selfwidth=$('.spanself').width();
+            $('.btnself').click(function () {
+                $('.self').css('left',selfwidth+16);
+                $('.self').fadeToggle();
+            });
+        });
+    </script>
+
+
+</head>
+<body>
+<div class="container-fluid" style="background-color: white; overflow: auto;margin: 0;height: 100%;">
+    <div class="row" >
+        <div class="col-md-12" style="height: 100%">
+            <div class="row">
+                <div class="col-md-12 form-inline " style="padding: 1%;background-color:white;" >
+                    <div class="form-group">
+                        <div class="form-group">
+                            <span class="spanself">选择变量：</span>
+                            <input class="btn btn-primary btnself" value="请选择">
+                        </div>
+                        <div class="self" style="width: 200px;height: 300px;display: none; background-color:#1284BA;z-index: 999;position:absolute;">
+                            <div class="button-group">
+                                <input type="text" class="form-control" value="输入关键字筛选" style="width: 96%;margin-left: 2%;background-color:#5E9AF9 ">
+                            </div>
+                            <div class="btn-group btn-group-sm" style="margin: 4%">
+                            </div>
+                            <div style="clear: right"></div><!--清除浮动-->
+                            <div class=""  style="padding-left: 6%">
+                                <p><input type="checkbox" name="checkbox" > <label>当前状态</label></p>
+                                <p><input type="checkbox" name="checkbox" > <label>鼓风速率</label></p>
+                                <p><input type="checkbox" name="checkbox" > <label>有用功率</label></p>
+                                <p><input type="checkbox" name="checkbox" > <label>日产风量</label></p>
+                                <p><input type="checkbox" name="checkbox" > <label>工作模式</label></p>
+                                <p><input type="checkbox" name="checkbox" > <label>故障状态</label></p>
+                            </div>
+                        </div>
+                        <span>选择报表：</span>
+                        <select class="form-control SelectStyle">
+                            <option value ="volvo">图形模式-风机变量</option>
+                            <option value ="saab">地图模式-风机变量</option>
+                            <option value ="saab">表格模式-基本信息</option>
+                            <option value ="saab">表格模式-风量信息</option>
+                            <option value ="saab">表格模式-效率信息</option>
+                            <option value ="saab">表格模式-其他信息</option>
+                            <option value ="saab">实时监控-底部统计</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="btn btn-info">
+                        <span>保存</span>
+                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-md-12">
+                    <table class="table-hover table-bordered" style="text-align: center;width: 100%;height: 300px;">
+                        <thead>
+                        <tr>
+                            <th>变量名</th>
+                            <th>单位</th>
+                            <th>排序</th>
+                            <th>显示格式</th>
+                            <th>数值格式</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style="height: 40px;padding: 0;margin: 0;">
+                            <td>当前状态</td>
+                            <td class="MonitorTd">
+                                <input class="form-control" type="text" >
+                            </td>
+                            <td class="MonitorTd">
+                                <form class="form-inline">
+                                  <a href="#"><span style="font-size: 20px;" class="glyphicon glyphicon-arrow-up"></span></a>
+                                  <a href="#"><span style="font-size: 20px;" class="glyphicon glyphicon-arrow-down"></span></a>
+                                </form>
+
+                            </td>
+                            <td class="MonitorTd">
+                                <select class="form-control">
+                                    <option>数值</option>
+                                    <option>状态</option>
+                                    <option>图形</option>
+                                    <option>风机名</option>
+                                </select>
+                            </td>
+                            <td class="MonitorTd">
+                                <select class="form-control">
+                                    <option>整数</option>
+                                    <option>一位小数</option>
+                                    <option>两位小数</option>
+                                    <option>三位小数</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>产风速</td>
+                            <td class="MonitorTd">
+                                <input class="form-control" type="text" value="m/s">
+                            </td>
+                            <td class="MonitorTd">
+                                <form class="form-inline">
+                                    <a href="#"><span style="font-size: 20px;" class="glyphicon glyphicon-arrow-up"></span></a>
+                                    <a href="#"><span style="font-size: 20px;" class="glyphicon glyphicon-arrow-down"></span></a>
+                                </form>
+                            </td>
+                            <td class="MonitorTd">
+                                <select class="form-control">
+                                    <option>数值</option>
+                                    <option>状态</option>
+                                    <option>图形</option>
+                                    <option>风机名</option>
+                                </select>
+                            </td>
+                            <td class="MonitorTd">
+                                <select class="form-control">
+                                    <option>整数</option>
+                                    <option>一位小数</option>
+                                    <option>两位小数</option>
+                                    <option>三位小数</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>有用功率</td>
+                            <td class="MonitorTd">
+                                <input class="form-control" type="text" value="KW">
+                            </td>
+                            <td class="MonitorTd">
+                                <form class="form-inline">
+                                    <a href="#"><span style="font-size: 20px;" class="glyphicon glyphicon-arrow-up"></span></a>
+                                    <a href="#"><span style="font-size: 20px;" class="glyphicon glyphicon-arrow-down"></span></a>
+                                </form>
+
+                            </td>
+                            <td class="MonitorTd">
+                                <select class="form-control">
+                                    <option>数值</option>
+                                    <option>状态</option>
+                                    <option>图形</option>
+                                    <option>风机名</option>
+                                </select>
+                            </td>
+                            <td class="MonitorTd">
+                                <select class="form-control">
+                                    <option>整数</option>
+                                    <option>一位小数</option>
+                                    <option>两位小数</option>
+                                    <option>三位小数</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>日发电量</td>
+                            <td class="MonitorTd">
+                                <input class="form-control" type="text" value="KWh">
+                            </td>
+                            <td class="MonitorTd">
+                                <form class="form-inline">
+                                    <a href="#"><span style="font-size: 20px;" class="glyphicon glyphicon-arrow-up"></span></a>
+                                    <a href="#"><span style="font-size: 20px;" class="glyphicon glyphicon-arrow-down"></span></a>
+                                </form>
+
+                            </td>
+                            <td class="MonitorTd">
+                                <select class="form-control">
+                                    <option>数值</option>
+                                    <option>状态</option>
+                                    <option>图形</option>
+                                    <option>风机名</option>
+                                </select>
+                            </td>
+                            <td class="MonitorTd">
+                                <select class="form-control">
+                                    <option>整数</option>
+                                    <option>一位小数</option>
+                                    <option>两位小数</option>
+                                    <option>三位小数</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>工作模式</td>
+                            <td class="MonitorTd">
+                                <input class="form-control" type="text" value="单位">
+                            </td>
+                            <td class="MonitorTd">
+                                <form class="form-inline">
+                                    <a href="#"><span style="font-size: 20px;" class="glyphicon glyphicon-arrow-up"></span></a>
+                                    <a href="#"><span style="font-size: 20px;" class="glyphicon glyphicon-arrow-down"></span></a>
+                                </form>
+
+                            </td>
+                            <td class="MonitorTd">
+                                <select class="form-control">
+                                    <option>数值</option>
+                                    <option>状态</option>
+                                    <option>图形</option>
+                                    <option>风机名</option>
+                                </select>
+                            </td>
+                            <td class="MonitorTd">
+                                <select class="form-control">
+                                    <option>整数</option>
+                                    <option>一位小数</option>
+                                    <option>两位小数</option>
+                                    <option>三位小数</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>故障状态</td>
+                            <td class="MonitorTd">
+                                <input class="form-control" type="text" value="单位">
+                            </td>
+                            <td class="MonitorTd">
+                                <form class="form-inline">
+                                    <a href="#"><span style="font-size: 20px;" class="glyphicon glyphicon-arrow-up"></span></a>
+                                    <a href="#"><span style="font-size: 20px;" class="glyphicon glyphicon-arrow-down"></span></a>
+                                </form>
+
+                            </td>
+                            <td class="MonitorTd">
+                                <select class="form-control">
+                                    <option>数值</option>
+                                    <option>状态</option>
+                                    <option>图形</option>
+                                    <option>风机名</option>
+                                </select>
+                            </td>
+                            <td class="MonitorTd">
+                                <select class="form-control">
+                                    <option>整数</option>
+                                    <option>一位小数</option>
+                                    <option>两位小数</option>
+                                    <option>三位小数</option>
+                                </select>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

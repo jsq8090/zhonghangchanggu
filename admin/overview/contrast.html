@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>风机内容</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="../../lib/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../../style/font.css">
+    <script src="../../lib/echarts.min.js"></script>
+    <script src="../../lib/laydate/laydate.js"></script>
+    <style>
+        html,body{ height: 100%}
+        .form-control{
+            background-color:#002c76;
+            border: 2px solid  rgba(10,141,249,0.78);
+            color: white
+        }
+        .tanchu{
+            position: absolute;
+            width: 180px;
+            height: 250px;
+            background-color:cornflowerblue;
+            z-index: 999;
+            border-radius: 4px;
+            padding: 0.5%;
+            display: none;
+        }
+        .text{
+            border-radius: 6px;
+            width: 98%;
+            margin: 10px auto;
+        }
+        #text-main{
+            width: 90%;
+            margin: 20px auto;
+            background-color:#fff;
+            padding: 20px;
+            border-radius: 10px;
+            -moz-box-shadow:5px 5px 5px black;
+            -webkit-box-shadow:5px 5px 5px black;
+            box-shadow: 5px 5px 5px black;
+        }
+
+    </style>
+</head>
+<body>
+<div  class="container-fluid" style="padding: 0; height: 100%; overflow: auto;  background-color: rgba(10,92,183,0.78)">
+    <header style="background-color:#002C76; color: white; padding: 10px" >
+        <form class="form-inline " >
+            <div class="form-group fw">
+                <label class="jj" >选择风机：</label>
+                <input class="btn btn-info form-control tan" value="已选择0台" type="button">
+                <div class="tanchu" style="overflow: auto">
+                            <div class="button-group">
+                                <input type="text" class="form-control" value="输入关键字筛选" style="width: 96%;margin-left: 2%;">
+                            </div>
+                     <div class=""  style="padding-left: 6%">
+                         <p><input type="checkbox" name="checkbox" value="G012"> <label>G012</label></p>
+                         <p><input type="checkbox" name="checkbox" value="G013"> <label>G013</label></p>
+                         <p><input type="checkbox" name="checkbox" value="G014"> <label>G014</label></p>
+                     </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label >选择属性：</label>
+                <select  class="form-control select" >
+                    <option value ="1001">主轴前轴承温度</option>
+                    <option value ="1002">主轴后轴承温度</option>
+                    <option value="1003">从轴前轴承温度</option>
+                    <option value="1004">从轴后轴承温度</option>
+                    <option value="1005">主油箱温度</option>
+                    <option value="1006">副油箱温度</option>
+                    <option value="1007">风机进口温度</option>
+                    <option value="1008">风机出口温度</option>
+                    <option value="1009">油站油温</option>
+                    <option value="2001">X向振动</option>
+                    <option value="2002">Y向振动</option>
+                    <option value="2003">Z向振动</option>
+                    <option value="3001">风机进口压力</option>
+                    <option value="3002">风机出口压力</option>
+                    <option value="3003">油站油压</option>
+                    <option value="4">进气过滤器阻力</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label >起止日期:</label>
+                <input id='test1' type="text" class="form-control"  value="2018-07-29 11:34:38">
+                <input id="test2" type="text" class="form-control" value="2018-07-29 11:34:55">
+            </div>
+            <div class="form-group">
+                <label >精度:</label>
+                <input type="text"  class="form-control num" value="1" style="width: 20%">
+                <label >分</label>
+                <input class="form-control search" type="button" value="查询">
+                <button  class="form-control">导出<span class="glyphicon glyphicon-log-in"></span></button>
+            </div>
+        </form>
+    </header><!--页头部分-->
+    <div class="main">
+        <div class="text">
+    <!--<nav style="text-align: center; background-color: rgba(10,92,183,0.78);padding: 5px ">
+        <h3 style="color: #fff">数据对比</h3>
+    </nav>-->
+          <div  id="text-main" >
+               <span class="glyphicon glyphicon-plus" style="color: rgba(42,206,5,0.78);font-size: 20px"></span>
+              <span style="font-size: 20px">曲线对比</span>
+                <hr style="width: 95%; border-top:2px solid rgba(141,141,141,0.78);">
+              <div id="contrast" style="width:80%; height: 480px; margin: 0 auto" >
+              </div>
+          </div>
+        </div>
+    </div><!--整体部分结束-->
+</div>
+    <script type="text/javascript">
+        var checkboxValue=[];
+
+        $(function () {
+
+          var fwWidth=$('.fw').width();
+            var i=0;
+            var checkboxValue=[];
+
+            $('.tanchu').css({left:fwWidth/3});
+            $('.tan').click(function () {
+                $('.tanchu').fadeToggle()
+            });/*弹出层控制*/
+
+            $('input:checkbox').click(function () {
+               i=$("input[name='checkbox']:checked").length;
+                $('.tan').va
+            }); /*监听选中复选框个数*/
+
+            laydate.render({
+                elem: '#test1'
+                ,type: 'datetime'
+            });
+            laydate.render({
+                elem: '#test2'
+                ,type: 'datetime'
+            });
+
+           $('.search').click(function () {
+
+               $('input:checkbox:checked').each(function () {
+                   checkboxValue.push($(this).val());
+               });
+               var xiala= $('.select option:selected').val();
+
+               var time1=$('#test1').val();
+               var time2=$('#test2').val();
+               var num=$('.num').val();
+                if(num==""){
+                    alert('精度不能为空')
+                    return 0;
+                }
+
+
+           })
+
+
+        });
+
+
+    var dom = document.getElementById("contrast");
+    var contrastChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    option = {
+        title: {
+
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['G012','G013','G014'],
+            textStyle:{
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        xAxis:
+            {
+
+                type: 'category',
+                boundaryGap: false,
+                data: ['1','2','3','4','5','6','7'],
+                axisLine: {
+                    lineStyle: {
+                        width: 1//这里是为了突出显示加上的
+                    }
+                }
+            },
+
+
+        yAxis: {
+            type: 'value',
+            axisLine: {
+                lineStyle: {
+                    width: 1//这里是为了突出显示加上的
+                }
+            }
+        },
+        dataZoom: [
+            {
+                type: 'slider',    //支持鼠标滚轮缩放
+                start: 0,            //默认数据初始缩放范围为10%到90%
+                end: 100
+            },
+            {
+                type: 'inside',    //支持单独的滑动条缩放
+                start: 0,            //默认数据初始缩放范围为10%到90%
+                end: 100
+            }
+        ],
+        series: [
+            {
+                name:'G012',
+                type:'line',
+                stack: '总量',
+                data:[2,3,10,8,9,10,14]
+            },
+            {
+                name:'G013',
+                type:'line',
+                stack: '总量',
+                data:[5,3,11,4,9,11,13]
+            },
+            {
+                name:'G014',
+                type:'line',
+                stack: '总量',
+                data:[6,3,11,5,9,7,9,5]
+            }
+
+        ]
+    };
+
+    if (option && typeof option === "object") {
+        contrastChart.setOption(option, true);
+    }
+    window.onresize = function(){
+        contrastChart.resize();
+    }
+</script>
+
+
+</body>
+
+</html>

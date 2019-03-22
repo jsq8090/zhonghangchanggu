@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义报表</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../style/main.css">
+    <script src="../lib/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../style/first.css">
+    <script src="../../lib/laydate/laydate.js"></script>
+    <link rel="stylesheet" href="../style/font.css">
+    <script src="../../lib/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="lib/laydate/laydate.js"></script>
+    <script src="../../lib/echarts.min.js"></script>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        #grad1 {
+            background: -webkit-linear-gradient(#002C76, #1284BA);
+            background: -o-linear-gradient(#002C76, #1284BA);
+            background: -moz-linear-gradient(#002C76, #1284BA);
+            background: linear-gradient(#002C76, #1284BA);
+        }
+        table tr th{
+            color: white;
+            text-align: center;
+        }
+        table tr td{
+            color: white;
+            text-align: center;
+        }
+    </style>
+    <script>
+
+    $(function () {
+        $('input:checkbox').click(function () {
+            i=$("input[name='checkbox']:checked").length;
+            $('.btnself').val('已选择'+i+'台');
+
+        });/*监听选中复选框个数*/
+            var selfwidth=0;
+            selfwidth=$('.spanself').width();
+            $('.btnself').click(function () {
+                $('.self').css('left',selfwidth+16);
+                $('.self').fadeToggle();
+        });
+    });
+    </script>
+</head>
+<body>
+<div class="container-fluid" id="grad1" style="overflow: auto;height: 100%;">
+    <div class="row">
+        <div class="col-md-12 " style="padding: 1%; color: white;background-color: #012C76;" >
+            <form class=" form-inline" role="group">
+                <div class="form-group">
+                <span class="spanself" >选择风机：</span>
+                <input class="btn btn-primary btnself" value="请选择">
+                </div>
+                <div class="self" style="width: 200px;height: 300px;display: none; background-color:#1284BA;z-index: 999;position:absolute;">
+                    <div class="button-group">
+                        <input type="text" class="form-control" value="输入关键字筛选" style="width: 96%;margin-left: 2%;background-color:#5E9AF9 ">
+                    </div>
+                    <div class="btn-group btn-group-sm" style="margin: 4%">
+                    </div>
+                    <div style="clear: right"></div><!--清除浮动-->
+                    <div class=""  style="padding-left: 6%">
+                        <p><input type="checkbox" name="checkbox" > <label>G012</label></p>
+                        <p><input type="checkbox" name="checkbox" > <label>G012</label></p>
+                        <p><input type="checkbox" name="checkbox" > <label>G012</label></p>
+                    </div>
+                </div>
+                <div class="form-group">
+            <span>选择报表：</span>
+            <select class="form-control SelectStyle">
+                <option value ="volvo">自定义报表</option>
+                <option value ="saab">分段日报表</option>
+                <option value ="saab">分段月报表</option>
+                <option value ="saab">分段年报表</option>
+            </select>
+            <select class="form-control SelectStyle">
+                <option value ="volvo">主轴前轴承温度</option>
+                <option value ="saab">主轴后轴承温度</option>
+                <option value="opel">从轴前轴承温度</option>
+                <option value="audi">从轴后轴承温度</option>
+                <option value="opel">主油箱温度</option>
+                <option value="audi">副油箱温度</option>
+                <option value="opel">风机进口温度</option>
+                <option value="audi">风机出口温度</option>
+                <option value="opel">油站油温</option>
+                <option value="audi">X向振动</option>
+                <option value="opel">Y向振动</option>
+                <option value="audi">Z向振动</option>
+                <option value="opel">风机进口压力</option>
+                <option value="audi">风机出口压力</option>
+                <option value="opel">油站油压</option>
+                <option value="audi">进气过滤器阻力</option>
+
+            </select>
+            <input class="btn btn-primary" value="请选择">
+                </div>
+                <div class="form-group">
+            <input class="form-control SelectStyle" type="text" id="DataTime1" value="2018-07-29">
+            <input class="form-control SelectStyle" type="text" id="DataTime2" value="2018-07-29">
+            <script>
+                laydate.render({
+                    elem: '#DataTime2'
+                });
+                laydate.render({
+                    elem: '#DataTime1'
+                });
+            </script>
+            <input type="button" class="btn btn-info" value="查询">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-12">
+            <form class="form-horizontal">
+                <input class="btn btn-primary" type="button" value="导出数据到excel" style="margin: 1% auto 1% 0;">
+                <table class=" table table-bordered" style="width: 80%;margin: auto;">
+                    <thead>
+                    <tr>
+                        <th>风机名</th>
+                        <th>最大风速</th>
+                        <th>最小风速</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>G012</td>
+                        <td>100</td>
+                        <td>312</td>
+                    </tr>
+                    <tr>
+                        <td>G012</td>
+                        <td>100</td>
+                        <td>312</td>
+                    </tr>
+                    <tr>
+                        <td>G012</td>
+                        <td>100</td>
+                        <td>312</td>
+                    </tr>
+                    <tr>
+                        <td>G012</td>
+                        <td>100</td>
+                        <td>312</td>
+                    </tr>
+                    <tr>
+                        <td>G012</td>
+                        <td>100</td>
+                        <td>312</td>
+                    </tr>
+                    <tr>
+                        <td>G012</td>
+                        <td>100</td>
+                        <td>312</td>
+                    </tr>
+                    <tr>
+                        <td>G012</td>
+                        <td>100</td>
+                        <td>312</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

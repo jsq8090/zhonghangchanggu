@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>风机内容</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <script src="../../lib/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../../style/font.css">
+    <style>
+        html,body{ height: 100%; user-select: none;}
+        .input-group{
+            width: 15%;
+        }
+        .add{
+            cursor: pointer;
+        }
+        .sub{
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+<div  class="container-fluid" style="padding: 0; height: 100%; overflow: auto">
+    <div style="width: 80%;margin-left: 100px">
+    <h1 >精确校准</h1>
+
+   <span style="font-size: 20px;">校准值增减：<span class="glyphicon glyphicon-plus add"></span>
+       <span class="glyphicon glyphicon-minus sub" style="color: red"></span></span>
+        <form class="form-horizontal" style="padding: 20px;">
+            <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">机器编号</div>
+                <input type="text" class="form-control" value="" id="macvalue">
+            </div>
+            </div>
+
+            <div class="form-group">
+                <label>选择类型：</label>
+                <div class="input-group">
+            <select class="form-control select">
+                <option value ="volvo">主轴前轴承温度</option>
+                <option value ="saab">主轴后轴承温度</option>
+                <option value="opel">从轴前轴承温度</option>
+                <option value="audi">从轴后轴承温度</option>
+                <option value="opel">主油箱温度</option>
+                <option value="audi">副油箱温度</option>
+                <option value="opel">风机进口温度</option>
+                <option value="audi">风机出口温度</option>
+                <option value="opel">油站油温</option>
+                <option value="audi">X向振动</option>
+                <option value="opel">Y向振动</option>
+                <option value="audi">Z向振动</option>
+                <option value="opel">风机进口压力</option>
+                <option value="audi">风机出口压力</option>
+                <option value="opel">油站油压</option>
+                <option value="audi">进气过滤器阻力</option>
+            </select>
+                </div>
+            </div>
+            <div class="form-group index">
+                <div class="input-group">
+                    <div class="input-group-addon">校准值1</div>
+                    <input type="number" class="form-control" value="" >
+                </div>
+            </div>
+
+            <div class="form-group index">
+                <div class="input-group">
+                    <div class="input-group-addon">校准值2</div>
+                    <input type="number" class="form-control" value="" >
+                </div>
+            </div>
+
+        </form>
+        <button class="btn btn-info tijiao">校准</button>
+
+
+</div>
+</div>
+<script>
+    $(function () {
+        var count=2;
+        var num=[];
+        $('.add').on('click',function () {
+           count++;
+            $('.form-horizontal').append(
+           '<div class="form-group index">'+' <div class="input-group">'+'<div class="input-group-addon">校准值'+count+'</div>'
+                +'<input type="number" class="form-control" value="" >'+'</div>'+ '</div>'
+            )
+        });
+
+        $('.tijiao').on('click',function () {
+            $('input[type=number]').each(function () {
+                if($(this).val()==''){
+                    alert('表单输入不可为空');
+                   return false;
+                }
+
+
+                num.push($(this).val());
+            });
+            var id=$('.select option:selected').val();
+
+                /*在此传入后端！！！ajax*/
+
+            console.log(num);
+            num=[];
+        });
+        $('.sub').click(function () {
+            if(count>1){
+            $(".index").eq(count).remove();
+            count--;
+                }
+            else{
+                return 0;
+
+            }
+        })
+
+    })
+
+
+</script>
+
+</body>
+
+</html>

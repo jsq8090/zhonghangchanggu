@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>故障记录</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script src="../../lib/jquery-3.3.1.min.js"></script>
+    <script src="../../lib/laydate/laydate.js"></script>
+
+
+
+
+</head>
+<body>
+<div class="container" style="">
+    <h3>故障数据记录 </h3>
+    <form  class="form-inline">
+        <label>机器编号：</label>
+        <input type="text" id="test0" class="form-control">
+    </form>
+    <br>
+    <label>查询类型：</label>
+
+    <select>
+        <option value ="volvo"></option>
+        <option value ="volvo">主轴前轴承温度</option>
+        <option value ="saab">主轴后轴承温度</option>
+        <option value="opel">从轴前轴承温度</option>
+        <option value="audi">从轴后轴承温度</option>
+        <option value="opel">主油箱温度</option>
+        <option value="audi">副油箱温度</option>
+        <option value="opel">风机进口温度</option>
+        <option value="audi">风机出口温度</option>
+        <option value="opel">油站油温</option>
+        <option value="audi">X向振动</option>
+        <option value="opel">Y向振动</option>
+        <option value="audi">Z向振动</option>
+        <option value="opel">风机进口压力</option>
+        <option value="audi">风机出口压力</option>
+        <option value="opel">油站油压</option>
+        <option value="audi">进气过滤器阻力</option>
+
+    </select>
+
+
+    <form  class="form-inline">
+        <label>查询日期：</label>
+        <input type="text" id="test1" class="form-control">
+        <input type="text" id="test2" class="form-control">
+        <label>~</label>
+        <input type="text" id="test3" class="form-control">
+        <input type="text" id="test4" class="form-control">
+        <button class="btn btn-info">查询</button>
+    </form>
+    <br>
+    <div>
+        <table class="table table-hover" style="text-align: center">
+            <tr>
+                <th> 故障编号</th>
+                <th> 主机编号</th>
+                <th>故障描述</th>
+                <th>故障时间</th>
+            </tr>
+            <tr class="fault">
+                <th class="fault-nu">1</th>
+                <th>hgh6666</th>
+                <th>主轴前轴承温度超标</th>
+                <th>2018/6/27/9:00</th>
+            </tr>
+            <tr class="fault">
+                <th class="fault-nu">1</th>
+                <th>hgh6666</th>
+                <th>主轴前轴承温度超标</th>
+                <th>2018/6/27/9:00</th>
+            </tr>
+        </table>
+        <span class="pull-left">当前页&nbsp1/8</span>
+    </div>
+    <br>
+    <nav aria-label="Page navigation" style="padding-left: 50%" >
+        <ul class="pagination">
+            <li><a href="">首页</a></li>
+            <li><a href="">上一页</a></li>
+            <li><a href="">下一页</a></li>
+            <li><a href="">尾页</a></li>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <input type="text" class="form-control value" placeholder="页数">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default tiao" type="button">跳转</button>
+                    </span>
+                </div>
+            </div>
+        </ul>
+    </nav>
+</div>
+
+
+
+<script>
+    //执行一个laydate实例
+    $( function () {
+        laydate.render({
+            elem: '#test1' //指定元素
+
+        });
+        laydate.render({
+            elem: '#test2'
+            ,type: 'time'
+        });
+        laydate.render({
+            elem: '#test3' //指定元素
+
+        });
+        laydate.render({
+            elem: '#test4'
+            ,type: 'time'
+        });
+
+    })
+</script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    $('.tiao').click(function () {
+        var val=$('.value').val()
+
+    })
+
+</script>
+</body>
+</html>

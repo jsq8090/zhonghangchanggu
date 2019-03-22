@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>校零表</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="../lib/jquery-3.3.1.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container" style="height: 40%;padding: 0">
+        <div class="form-inline col-md-3 " style="margin-top:5px">
+            <label for=""><b>校准类型：</b></label>
+        <select class="form-control select" style="width: 50%">
+            <option value ="1001">主轴前轴承温度</option>
+            <option value ="1002">主轴后轴承温度</option>
+            <option value="1003">从轴前轴承温度</option>
+            <option value="1004">从轴后轴承温度</option>
+            <option value="1005">主油箱温度</option>
+            <option value="1006">副油箱温度</option>
+            <option value="1007">风机进口温度</option>
+            <option value="1008">风机出口温度</option>
+            <option value="1009">油站油温</option>
+            <option value="2001">X向振动</option>
+            <option value="2002">Y向振动</option>
+            <option value="2003">Z向振动</option>
+            <option value="3001">风机进口压力</option>
+            <option value="3002">风机出口压力</option>
+            <option value="3003">油站油压</option>
+            <option value="4">进气过滤器阻力</option>
+        </select>
+            <br>
+            <label for=""><b>校准值：</b></label>
+        <input type="number" class="form-control" id="p6" placeholder="0" style="width: 20%">
+        </div>
+        <button class="btn prompt  pull-right">校准</button>
+
+
+    </div>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    $(function () {
+        $('.prompt').click(function () {
+
+        var type= $('.select option').attr('value');
+            var value=$('#p6').val();
+
+        });
+        $('.select').change(function () {
+
+
+        })
+
+
+    })
+
+</script>
+</body>
+</html>

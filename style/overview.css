@@ -1,0 +1,55 @@
+.span{
+    font-size:0.22rem;
+    margin-left:0.25rem;
+    cursor: pointer;
+    color: white;
+}
+.link{
+    cursor: pointer;
+}
+.BHStyle{
+    font-size: 0.13rem;
+    color: yellow;
+    margin-bottom: 3px;
+}
+.FengJiState{
+    width: 100%;
+    border-radius:9px;
+    background-color: #0B66B9;
+    margin: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.MainBox{ width: 100%;
+    padding-top: 0.1rem;
+}
+.MainBox li{ float: left;
+    width: 24%;
+    list-style: none;
+    margin-left: 2px;
+}
+.LeftTop{text-align: left;
+    color: white;
+}
+.LeftTop p{
+    margin: 0;
+    color:white;
+    font-weight: 600;
+    font-size: 0.12rem;
+}
+.ZhuangTai{
+    padding-top:0.1rem;
+    text-align: left;
+}
+.ZhuangTai li{
+    color: yellow;
+    width: 100%;
+    font-size: 0.10rem;
+}
+.ZhuangTai ul{width: 100%;}
+.TuBiaoRight{text-align:right;}
+.TuBiaoRight i{font-size: 0.4rem;
+    color: #0CDBC1;
+}

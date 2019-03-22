@@ -1,0 +1,186 @@
+/********************
+ * 整体样式
+ ********************/
+*{
+	font-family: "微软雅黑";
+}
+/********************
+ * 重写bs样式
+ ********************/
+html,body{
+  height: 100%;
+}
+.main-navbar{
+ color: black;
+   font-weight:600;
+
+
+}
+.main-navbar .navbar-nav > li > a{
+	font-size: 27px;
+}
+.main-navbar .navbar-nav> li > a {
+  	color: black;
+}
+.main-navbar  .navbar-nav> li >a:hover,
+.main-navbar  .navbar-nav> li >a:focus {
+  	color: black;
+
+}
+.main-navbar  .navbar-nav> .active > a,
+.main-navbar  .navbar-nav> .active >a:hover,
+.main-navbar  .navbar-nav> .active >a:focus {
+  	color: black;
+
+}
+.main-navbar  .navbar-nav> .disabled > a,
+.main-navbar  .navbar-nav> .disabled >a:hover,
+.main-navbar  .navbar-nav> .disabled >a:focus {
+  	color: black;
+  	background-color: rgba(241,241,241,0.78);
+}
+
+/********************
+ * 布局
+ ********************/
+#wrapper .sidebar {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 200px;
+  height: 100%;
+  float: left;
+  font-weight:600;
+  background-color: rgba(241,241,241,0.78);
+  position: fixed;
+  left: 0; }
+
+#wrapper .main {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: calc(100% - 200px);
+  left: 0;
+  position: relative;
+  float: right;
+
+  }
+
+
+#wrapper #sidebar-nav,
+#wrapper .main {
+  padding-top: 0;
+
+}
+
+@media screen and (max-width: 767px) {
+  #wrapper #sidebar-nav,
+  #wrapper .main {
+    padding-top: 0; } }
+
+.layout-fullwidth #wrapper .sidebar {
+  left: -200px; }
+
+.layout-fullwidth #wrapper .main {
+  width: 100%; }
+
+.layout-fullwidth #wrapper .navbar {
+  left: 0 !important; }
+
+.layout-fullwidth #wrapper .btn-toggle-fullwidth {
+  color: black; }
+
+.offcanvas-active #wrapper .sidebar {
+  left: 0; }
+
+.offcanvas-active #wrapper .main {
+  width: 100%;
+  position: relative;
+  left: 200px; }
+
+@media screen and (max-width: 1024px) {
+  #wrapper .sidebar {
+    left: -200px; }
+  #wrapper .main {
+    width: 100%; }
+  #wrapper .navbar {
+    left: 0 !important; }
+  #wrapper .btn-toggle-fullwidth {
+    color: black; }
+  .btn-toggle-minified {
+    display: none; } }
+
+/********************
+ * 左侧边栏
+ ********************/
+.sidebar {
+  }
+  .sidebar .nav > li > a {
+    padding: 18px 30px;
+    color: black;
+    border-left: 5px solid transparent; }
+    .sidebar .nav > li > a:hover, .sidebar .nav > li > a:focus, .sidebar .nav > li > a.active {
+      color: black;
+      background-color: transparent; }
+      .sidebar .nav > li > a:hover i, .sidebar .nav > li > a:focus i, .sidebar .nav > li > a.active i {
+        color: black; }
+    .sidebar .nav > li > a:focus, .sidebar .nav > li > a.active {
+      background-color: rgba(241,241,241,0.78);
+      border-left-color: #00AAFF; }
+    .sidebar .nav > li > a[data-toggle="collapse"] .icon-submenu {
+      display: inline-block;
+      vertical-align: middle;
+      *vertical-align: auto;
+      *zoom: 1;
+      *display: inline;
+      -webkit-transition: all 0.2s ease-out;
+      -moz-transition: all 0.2s ease-out;
+      -ms-transition: all 0.2s ease-out;
+      -o-transition: all 0.2s ease-out;
+      transition: all 0.2s ease-out;
+      float: right;
+      position: relative;
+      top: 5px;
+      font-size: 12px;
+      line-height: 1.1;
+      -moz-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+      -webkit-transform: rotate(-90deg);
+      transform: rotate(-90deg); }
+    .sidebar .nav > li > a[data-toggle="collapse"].collapsed .icon-submenu {
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg); }
+    .sidebar .nav > li > a .badge {
+      font-weight: 500;
+      background-color: #F9354C; }
+  .sidebar .nav {
+    /* submenu */ }
+    .sidebar .nav i {
+      margin-right: 10px;
+      font-size: 18px; }
+    .sidebar .nav span {
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      position: relative;
+      top: -2px; }
+    .sidebar .nav .nav {
+      background-color: white; }
+      .sidebar .nav .nav > li > a {
+        padding-left: 60px;
+        padding-top: 10px;
+        padding-bottom: 10px; }
+        .sidebar .nav .nav > li > a:focus, .sidebar .nav .nav > li > a.active {
+          background-color: transparent;
+          border-left-color: transparent; }
+        .sidebar .nav .nav > li > a.active a {
+          color: black; }
+

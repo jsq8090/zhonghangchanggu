@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员页面</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="../lib/jquery-3.3.1.min.js"></script>
+<style>
+ .fault td span{cursor: pointer}
+
+</style>
+</head>
+<body>
+<div class="container" style="height: 100%;padding: 0">
+<ul class="nav nav-pills " style="background-color: rgba(241,241,241,0.78)">
+    <li role="presentation" class="active"><a href="#">首页</a></li>
+
+    <li role="presentation"><a href="#">用户管理</a></li>
+    <li role="presentation"><a href="#">风机管理</a></li>
+    <li role="presentation"><a href="#">风机初始化</a></li>
+</ul>
+    <div class="yonghu">
+        <h3>当前用户</h3>
+        <div class="pull-right">
+        <span>添加用户</span>
+        <span class="glyphicon glyphicon-plus" aria-hidden="true" data-toggle="modal" data-target="#myModal" style="color:blue; cursor: pointer"></span>
+        </div>
+        <table class="table table-striped ">
+            <tr>
+                <th> 用户名</th>
+                <th> 密码</th>
+                <th>身份权限</th>
+                <th>创建时间</th>
+                <th>编辑修改</th>
+            </tr>
+            <tr class="fault">
+                <td class="fault-nu">1</td>
+                <td>hgh6666</td>
+                <td>主轴前轴承温度超标</td>
+                <td>2018/6/27/9:00</td>
+                <td>
+                    <span class="glyphicon glyphicon-pencil editor " aria-hidden="true" style="color:blue; margin-right: 15%"></span>
+                    <span id="" class="glyphicon glyphicon-remove" aria-hidden="true" style="color:red"></span>
+                </td>
+            </tr>
+            <tr >
+                <td class="fault-nu">1</td>
+                <td>hgh6666</td>
+                <td>主轴前轴承温度超标</td>
+                <td>2018/6/27/9:00</td>
+                <td>
+
+                    <span class="glyphicon glyphicon-pencil editor " aria-hidden="true" style="color:blue; margin-right: 15%"></span>
+                    <span id="delet" class="glyphicon glyphicon-remove" aria-hidden="true" style="color:red"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">信息编辑</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" style=" padding-top: 30px">
+                        <div class="form-group">
+                            <label for="username" class="col-sm-3 control-label">用户名:</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="username" placeholder="用户名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Password" class="col-sm-3 control-label">密码:</label>
+                            <div class="col-sm-5">
+                                <input type="password" class="form-control" id="Password" placeholder="密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="i3" class="col-md-3 control-label">确认密码：</label>
+                            <div class="col-sm-5">
+                                <input type="password" class="form-control" id="i3" placeholder="确认密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-offset-1 control-label">用户权限：</label>
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="radio">
+
+                                    <label><input type="radio" value="职工" name="myrad" class="man2">职工</label>
+                                    <label><input type="radio" value="游客" name="myrad" class="man2">游客</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-primary tijiao">提交</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+</div>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    $(function () {
+
+        $('.editor').click(function () {
+
+         var a= $(this).parents('tr');
+         var id=a.find('td').first().text();
+         console.log(num);
+         a.after('<tr class="fault">'+
+            '    <td class="fault-nu"><input type="text" class="form-control" style="width: 40%"></td>'+
+                '<td>'+'<input type="text" class="form-control" style="width: 40%" >'+'</td>'+
+                '<td>'+'<select class="form-control" style="width: 45%">'+
+                '<option>职工</option>'+
+                '<option value="">游客</option>'+'</select>'+'</td>'+
+                '<td>'+'<button class="btn btn-danger pull-right ">修改</button>'+'</td>'+
+                '</tr>'
+               )
+            $(this).hide();
+        });
+
+
+        $('.tijiao').click(function () {
+            var username=$('#username').val();
+            var password=$('#password').val();
+            var password1=$('#i3');
+            if(username==""||password==""||password1=="") {
+
+                alert('表单字段不能为空')
+                return 0
+
+            }
+
+        })
+
+        })
+
+</script>
+</body>
+</html>

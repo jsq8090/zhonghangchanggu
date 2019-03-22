@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编号修改</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="../lib/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div class="container" style="text-align: center" >
+    <h3>编号修改</h3>
+    <hr>
+    <a class="btn btn-info pull-right" href="first.html">首页</a>
+    <table class="table table-bordered " style="width: 80%; margin: 0 auto; ">
+        <tr >
+            <td>#</td>
+            <td>主机编号</td>
+            <td>传感器组</td>
+
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><input type="text"  placeholder="8786856645" ></td>
+            <td><input type="text"  placeholder="8786856645"></td>
+
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><input type="text" placeholder="ghkjhfghfh"  ></td>
+            <td><input type="text"  placeholder="8786856645"  ></td>
+
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><input type="text" placeholder="4534234232" ></td>
+            <td><input type="text"  placeholder="8786856645"  ></td>
+
+        </tr>
+        <tr>
+            <td>4</td>
+            <td><input type="text" placeholder=""  ></td>
+            <td><input type="text"  placeholder="8786856645"  ></td>
+
+        </tr>
+    </table>
+    <button class="btn prompt  pull-right">修改</button>
+</div>
+<script>
+    $(function () {
+        $('.prompt').click(function () {
+
+            confirm('是否确认修改内容？')
+
+        })
+
+    })
+</script>
+</body>
+</html>

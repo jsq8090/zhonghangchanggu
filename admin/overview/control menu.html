@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制菜单</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../../style/main.css">
+    <script src="../../lib/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../../font/iconfont.css">
+    <link rel="stylesheet" href="../../style/first.css">
+    <script src="../../lib/laydate/laydate.js"></script>
+    <link rel="stylesheet" href="../../style/font.css">
+    <script src="../../lib/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../lib/laydate/laydate.js"></script>
+    <script src="../../lib/echarts.min.js"></script>
+
+    <style>
+        html,body{ height: 100%;}
+        table tr th{
+            text-align: center;
+        }
+        #grad2 {
+            background: -webkit-linear-gradient(#002C76, #1284BA);
+            background: -o-linear-gradient(#002C76, #1284BA);
+            background: -moz-linear-gradient(#002C76, #1284BA);
+            background: linear-gradient(#002C76, #1284BA);
+        }
+        a{
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container-fluid" id="grad2" style="overflow: auto; height: 100%;">
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered"  style="text-align: center;color: white;">
+            <thead>
+            <tr>
+                <th></th>
+                <th>中文菜单名</th>
+                <th>英文菜单名</th>
+                <th>菜单描述</th>
+                <th>查看/修改</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>单机启动</td>
+                <td>wt start</td>
+                <td>单击页面中风机启动权限</td>
+                <td><a href="">查看</a>/<a href="">修改</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>单机停机</td>
+                <td>wt stop</td>
+                <td>单击页面中风机停机权限</td>
+                <td><a href="">查看</a>/<a href="">修改</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>单机复位</td>
+                <td>wt reset</td>
+                <td>单击页面中风机复位权限</td>
+                <td><a href="">查看</a>/<a href="">修改</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>单机控制</td>
+                <td>wt ctrl</td>
+                <td>单击页面中风机控制控权限</td>
+                <td><a href="">查看</a>/<a href="">修改</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>单机锁定</td>
+                <td>wt lock</td>
+                <td>单击页面中风机锁定权限</td>
+                <td><a href="">查看</a>/<a href="">修改</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>单机编辑</td>
+                <td>wt edit</td>
+                <td>单击页面中风机编辑权限</td>
+                <td><a href="">查看</a>/<a href="">修改</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</body>
+</html>

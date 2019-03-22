@@ -1,0 +1,73 @@
+<!--压力开始-->
+
+<div style="height: 100%; " class="col-md-12 a" id="pre">
+
+    <div class="row" style="height: 45%">
+        <div class="col-md-7" id="gauge1" style="height:100%;">
+        </div>
+        <div class="col-md-3 col-md-offset-1" style="height:40%;background-color: rgba(247,247,247,0.78);padding-top: 1%;">
+            <h4>参数修改</h4>
+            <form class="form-group">
+                <div class="form-inline">
+                    <label for="p2">量程值：</label>
+                    <input type="number" class="form-control" id="p2" placeholder="0" style="width: 25%">
+                    <label for="p3">~</label>
+                    <input type="text" class="form-control" id="p3" placeholder="10" style="width: 25%">
+                    <input type="button" class="btn btn-default display btn1" value="修改" name="pre">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row" style="height: 55%">
+        <div id="pressure" class="col-md-8 " style=" height: 100%">
+        </div>
+        <div class="col-md-3" style="padding-top: 4%; margin-top: 1%; background-color: rgba(241,241,241,0.78); height:80%; border-radius: 5%">
+            <div class="form-inline" style="margin-bottom: 4%;">
+                <label for=""><b>预警值:</b></label>
+                <select class="form-control select" style="width: 50%">
+                    <option value ="1001">主轴前轴承温度</option>
+                    <option value ="1002">主轴后轴承温度</option>
+                    <option value="1003">从轴前轴承温度</option>
+                    <option value="1004">从轴后轴承温度</option>
+                    <option value="1005">主油箱温度</option>
+                    <option value="1006">副油箱温度</option>
+                    <option value="1007">风机进口温度</option>
+                    <option value="1008">风机出口温度</option>
+                    <option value="1009">油站油温</option>
+                    <option value="2001">X向振动</option>
+                    <option value="2002">Y向振动</option>
+                    <option value="2003">Z向振动</option>
+                    <option value="3001">风机进口压力</option>
+                    <option value="3002">风机出口压力</option>
+                    <option value="3003">油站油压</option>
+                    <option value="4">进气过滤器阻力</option>
+                </select>
+            </div>
+            <div class="form-inline i" style="margin:10px 0;">
+                <label for="">报警时延:</label>
+                <input type="number" class="form-control" id="p8" placeholder="150" style="width: 23%">
+                <label for="">秒</label>
+
+            </div>
+            <div class="form-inline i">
+                <label for="">低报:</label>
+                <input type="number" class="form-control" id="p4" placeholder="0" style="width: 23%">
+                <label for="">低低报:</label>
+                <input type="number" class="form-control" id="p5" placeholder="-20" style="width: 23%">
+            </div>
+
+            <div class="form-inline i" style="margin-top:5px">
+                <label for="">高报:</label>
+                <input type="number" class="form-control" id="p6" placeholder="100" style="width: 23%">
+                <label for="">高高报:</label>
+                <input type="number" class="form-control" id="p7" placeholder="150" style="width: 23%">
+            </div>
+            <input type="button" class="btn btn-danger display btn2 pull-right" value="修改">
+        </div>
+        </div>
+        </div>
+
+<script src="../js/text.js"></script>
+<script src="../js/pre/gauge1.js"></script>
+<script src="../js/pre/yali.js"></script>
